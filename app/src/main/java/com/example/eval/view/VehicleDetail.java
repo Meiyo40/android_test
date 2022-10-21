@@ -23,6 +23,7 @@ public class VehicleDetail extends AppCompatActivity {
     private TextView vehiclePrice;
     private TextView vehicleKm;
     private Button btnBuy;
+    private Button btnDel;
     private VehicleViewModel viewModel;
     private Vehicle vehicle;
 
@@ -36,6 +37,7 @@ public class VehicleDetail extends AppCompatActivity {
         vehicleModel = findViewById(R.id.detail_vehicle_model);
         vehiclePrice = findViewById(R.id.detail_vehicle_price);
         btnBuy = findViewById(R.id.detail_vehicle_buy);
+        btnDel = findViewById(R.id.detail_vehicle_del);
 
         viewModel = new ViewModelProvider(this).get(VehicleViewModel.class);
         int position = getIntent().getIntExtra("position_vehicle", 0);
@@ -58,6 +60,16 @@ public class VehicleDetail extends AppCompatActivity {
 
                 if(!result)
                     return;
+
+                Intent backToMain = new Intent(VehicleDetail.this, MainActivity.class);
+                startActivity(backToMain);
+            }
+        });
+
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewModel.delete(vehicle);
 
                 Intent backToMain = new Intent(VehicleDetail.this, MainActivity.class);
                 startActivity(backToMain);
