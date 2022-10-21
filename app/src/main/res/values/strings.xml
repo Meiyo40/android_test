@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">eval</string>
+    <string name="brand_vehicle">Marque véhicule</string>
+    <string name="model_vehicle">Modèle véhicule</string>
+    <string name="km_vehicle">Kilométrage</string>
+    <string name="price_vehicle">Prix €</string>
+</resources>
